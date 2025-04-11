@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>اختصار الروابط</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: linear-gradient(to right, #2c3e50, #4ca1af);
+            font-family: 'Cairo', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            direction: rtl;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+
+        input[type="text"]{
+            width: 95%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #f39c12;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e67e22;
+        }
+
+        .short-url {
+            margin-top: 20px;
+            padding: 10px;
+            background: #27ae60;
+            border-radius: 8px;
+            word-break: break-all;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #34495e;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            input[type="text"], button, select {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>اختصر رابطك بسهولة 🚀</h1>
+        <form method="POST">
+            <input type="text" name="original_url" placeholder="أدخل الرابط الأصلي" required>
+            
+            <!-- قائمة المنصات الاجتماعية -->
+            <select name="custom_domain">
+                <option value="">اختيار المنصة (اختياري)</option>
+                <option value="facebook.com">فيسبوك</option>
+                <option value="x.com">x (تويتر سابقا)</option>
+                <option value="instagram.com">إنستغرام</option>
+                <option value="linkedin.com">لينكدإن</option>
+                <option value="tiktok.com">تيك توك</option>
+                <option value="youtube.com">يوتيوب</option>
+            </select>
+
+            <button type="submit">اختصر الرابط</button>
+        </form>
+
+        {% if short_url %}
+            <div class="short-url">
+                <strong>رابطك المختصر:</strong><br>
+                <a href="{{ short_url }}" style="color: #fff;" target="_blank">{{ short_url }}</a>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>صمم بواسطة <a href="https://instagram.com/omer_secure" target="_blank">Omer Secure</a> | جميع الحقوق محفوظة © 2025</p>
+    </footer>
+</body>
+</html>
